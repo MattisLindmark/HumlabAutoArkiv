@@ -27,7 +27,6 @@ var botg = ';flashvars[autoPlay]=true;flashvars[streamerType]=auto&amp;flashvars
         var mainContainer = document.getElementById("myData");
         mainContainer.innerHTML = '';
         i = Math.floor(Math.random()*data.length);
-		i = 3;
 
         var div = document.createElement("div");
         div.innerHTML = 'Id:'+data[i].id+' Video: ' + data[i].rubrik + ' ' + data[i].info+'</br>';
