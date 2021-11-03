@@ -26,10 +26,10 @@ var botg = ';flashvars[autoPlay]=true;flashvars[streamerType]=auto&amp;flashvars
 
         var mainContainer = document.getElementById("myData");
         mainContainer.innerHTML = '';
-        i = Math.floor(Math.random()*data.length);
+        i = Math.floor(Math.random()*data.length+1);
 
         var div = document.createElement("div");
-        div.innerHTML = 'Video: ' + data[i].rubrik + ' ' + data[i].info+'</br>';
+        div.innerHTML = 'Id:'+data[i].id+' Video: ' + data[i].rubrik + ' ' + data[i].info+'</br>';
         div.innerHTML += topg+data[i].videoid+midd+data[i].start+"&amp"+botg;    
         mainContainer.appendChild(div);
 
