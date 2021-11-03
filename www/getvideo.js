@@ -10,7 +10,7 @@ var botg = ';flashvars[autoPlay]=true;flashvars[streamerType]=auto&amp;flashvars
 // Obs: tillagt flashvars[autoPlay]=true;
 //
 
-    fetch('https://mattislindmark.github.io/testzone/testjson.json')
+    fetch('https://mattislindmark.github.io/HumlabAutoArkiv/www/videolist.json')
     .then(function (response) {
         return response.json();
     })
@@ -27,6 +27,7 @@ var botg = ';flashvars[autoPlay]=true;flashvars[streamerType]=auto&amp;flashvars
         var mainContainer = document.getElementById("myData");
         mainContainer.innerHTML = '';
         i = Math.floor(Math.random()*data.length);
+		i = 3;
 
         var div = document.createElement("div");
         div.innerHTML = 'Id:'+data[i].id+' Video: ' + data[i].rubrik + ' ' + data[i].info+'</br>';
