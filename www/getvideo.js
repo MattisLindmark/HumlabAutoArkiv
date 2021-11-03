@@ -33,7 +33,7 @@ var botg = ';flashvars[autoPlay]=true;flashvars[streamerType]=auto&amp;flashvars
         div.innerHTML += topg+data[i].videoid+midd+data[i].start+"&amp"+botg;    
         mainContainer.appendChild(div);
 
-        mainContainer.appendChild(div);
+//        mainContainer.appendChild(div);
 //        var player = document.getElementById("kaltura_player").setAttribute({"autoPlay":true});
 //        player.flashvars[mediaProxy.mediaPlayFrom]=2;
 //        flashvars[mediaProxy.mediaPlayFrom]=1
