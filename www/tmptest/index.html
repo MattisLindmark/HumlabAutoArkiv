@@ -2,7 +2,7 @@
 <html>
 <head>
 <!-- Substitute {partner_id} for your Kaltura partner id, {uiconf_id} for uiconf player id -->
-<script src="https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296"></script>   
+<!-- <script src="https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296"></script>   --->
 <!--- src="https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296 --->
 </head>
 
@@ -21,16 +21,25 @@
 		'uiconf_id' : '23449664',
 		'entry_id' : '0_x8vi0g1u',
 		'flashvars':{ // flashvars allows you to set runtime uiVar configuration overrides. 
-			'autoPlay': false
+			'autoPlay': true,
+			'autoPMute': false,
+			'allowfullscreen': false,
+			 'mobileAutoPlay': true
 		},
 		'params':{ // params allows you to set flash embed params such as wmode, allowFullScreen etc
-			'wmode': 'transparent' 
+			'wmode': 'transparent',
+			'allowfullscreen': 'false'
 		}
 	});
-	
 
 	</script>
-  
+	<script>
+<!--	document.getElementById(‘myEmbedTarget’).sendNotification('doSeek', 10)
+	
+		window.kdp = document.getElementById('myEmbedTarget');
+		kdp.sendNotification('closeFullScreen');
+		kdp.sendNotification('doSeek',20);
+	</script>
 
   
 <!--
