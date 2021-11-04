@@ -1,23 +1,5 @@
 [
   {
-    "id": 1,
-    "rubrik": "Kul med kultur",
-    "talare": "Örjan Ånäs",
-    "datum": "2011-11-08",
-    "info": "En medryckande uppvisning i att visa upp hur man rycker medar från slädar.",
-    "start": 1,
-    "videoid": "0_9w4ual2i"
-  },
-  {
-    "id": 2,
-    "rubrik": "Tut i luren",
-    "talare": "Eva Elk",
-    "datum": "2020-03-12",
-    "info": "När pandemin kom till byn och andra saker.",
-    "start": 0,
-    "videoid": "0_2rsnjwdf"
-  },
-  {
     "id": 3,
     "rubrik": "Mobile Phone Orchestra",
     "talare": "Anders Lind",
@@ -25,5 +7,23 @@
     "info": "MobilePhoneOrchestra.com is a web based platform under development by composer/ researcher Anders Lind at the Department of Creative Studies at Umeå University. This talk will include presentation of the platform and the ongoing research process and provide for short performance exercises with the participators. Please have your phone ready! No musical background is needed!",
     "start": 3345,
     "videoid": "0_90p47kwj"
+  },
+  {
+    "id": 4,
+    "rubrik": "Computing the Human",
+    "talare": "Katherine Hayles, University of California at Los Angeles",
+    "datum": "2002-05-24",
+    "info": " When humans construct artefacts, they create environments, change living conditions, and instantiate ideas, all of which change what \"the human\" means. There is, then, a reverse feedback through which artefacts construct humans. This presentation will explore the construction of the human through computational artefacts ranging from mobile robots to epistemologically autonomous devices. Using the\"sense-think-act\" paradigm for the construction of artificial intelligences, the presentation will discuss how each of these practices is changing and, in the process, fundamentally transforming how cognition is understood. Researchers discussed include Rodney Brooks, Maja Mataric, Jon Bird, Peter Cariani and Edwin Hutchins.",
+    "start": 1394,
+    "videoid": "0_6s2o8d24"
+  },
+  {
+    "id": 5,
+    "rubrik": "Mapping Identity",
+    "talare": "Judith Donath, MIT Media lab",
+    "datum": "2003-09-18",
+    "info": "In the physical world, we express and perceive identity through numerous cues. We learn about people by observing where they are, who they are with, what they are wearing, how they speak, etc. In the online world, most of these familiar cues are missing. There are, however, other cues, such as the history of a person's contributions to a public forum or the set of acquaintances they are linked to in a communication web. In this seminar we will first review some major approaches to identity perception, focussing on prototype models and the problem of cue reliability. We will then look at ways identity is expressed online, analysing whether and if so, how the differences between the physical and mediated worlds would lead to fundamentally different formulations of identity. Finally, we will look at the role of visualizations in making these identity cues visible.",
+    "start": 2490,
+    "videoid": "0_x8vi0g1u"
   }
 ]
