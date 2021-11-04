@@ -5,7 +5,7 @@
     "talare": "Örjan Ånäs",
     "datum": "2011-11-08",
     "info": "En medryckande uppvisning i att visa upp hur man rycker medar från slädar.",
-    "start": 60,
+    "start": 1,
     "videoid": "0_9w4ual2i"
   },
   {
@@ -16,5 +16,14 @@
     "info": "När pandemin kom till byn och andra saker.",
     "start": 0,
     "videoid": "0_2rsnjwdf"
+  },
+  {
+    "id": 3,
+    "rubrik": "Mobile Phone Orchestra",
+    "talare": "Anders Lind",
+    "datum": "2019-02-14",
+    "info": "MobilePhoneOrchestra.com is a web based platform under development by composer/ researcher Anders Lind at the Department of Creative Studies at Umeå University. This talk will include presentation of the platform and the ongoing research process and provide for short performance exercises with the participators. Please have your phone ready! No musical background is needed!",
+    "start": 3345,
+    "videoid": "0_90p47kwj"
   }
 ]
