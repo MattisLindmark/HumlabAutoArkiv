@@ -2,7 +2,7 @@
 var GlobalData;
 var topg = '<iframe id="kaltura_player" src="https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296?iframeembed=true&playerId=kaltura_player&entry_id=';
 var midd = '&flashvars[mediaProxy.mediaPlayFrom]='; //5&amp'
-var botg = ';flashvars[autoPlay]=true&amp;flashvars[mobileAutoPlay]=true&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_dif1itof" width="400" height="285" allow="autoplay *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player">';
+var botg = ';flashvars[autoPMute]=false&amp;flashvars[autoPlay]=true&amp;flashvars[mobileAutoPlay]=true&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_dif1itof" width="400" height="285" allow="autoplay *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player">';
 
 //var botg = ';flashvars[autoPlay]=true&amp;flashvars[mobileAutoPlay]=true&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_dif1itof" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player">';
 
@@ -35,9 +35,11 @@ var dataurl = 'https://script.google.com/macros/s/AKfycbzHGXqVABMNbQ2o5_-YqkzuOp
         i = Math.floor(Math.random()*data.length);
 
         var div = document.createElement("div");
-        div.innerHTML = 'v3-Id:'+data[i].id+' Video: ' + data[i].rubrik + ' ' + data[i].info+'</br>';
+        div.innerHTML = 'v4-Id:'+data[i].id+' Video: ' + data[i].rubrik + ' ' + data[i].info+'</br>';
         div.innerHTML += topg+data[i].videoid+midd+data[i].start+"&amp"+botg;    
         mainContainer.appendChild(div);
+        
+        document.getElementById( 'kaltura_player' ).sendNotification( 'closeFullScreen');
 
 //        mainContainer.appendChild(div);
 //        var player = document.getElementById("kaltura_player").setAttribute({"autoPlay":true});
