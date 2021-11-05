@@ -31,8 +31,63 @@
 			'allowfullscreen': 'false'
 		}
 	});
+	
+	 kWidget.addReadyCallback(function( playerId ){
+        var kdp = document.getElementById( playerId );
+        // binds an event and namespces it to "myPluginName"
+
+        kdp.kBind("mediaReady", function( ){
+//            kdp.sendNotification("changeVolume", 0.1);
+			kdp.sendNotification('closeFullScreen');
+        });
+		
+   	kdp.kBind('playerSeekEnd', function(){
+//		kdp.sendNotification("changeVolume", 0.1);
+	});
+	
+	var seekDone = false;
+	kdp.kBind('playerUpdatePlayhead', function(){
+		if( ! seekDone ){
+		kdp.sendNotification('doSeek', 60 );
+		}
+		seekDone = true;
+	});
+	var mediaswitch = false;
+	kdp.kBind('mediaReady', function(){
+		kdp.sendNotification('doPlay');
+		
+		setTimeout(function(){
+			seekDone = false;
+			mediaswitch = !mediaswitch;
+			if (mediaswitch)
+				kdp.sendNotification('changeMedia',{'entryId' : '0_6s2o8d24' } );
+			else
+				kdp.sendNotification('changeMedia',{'entryId' : '0_90p47kwj' } );
+				
+		},10000)
+		
+		
+	})
+
+ });
 
 	</script>
+<!--	
+	<script>
+	function jsCallbackReady(kaltura_player) {
+		window.kdp = document.getElementById(kaltura_player);
+		kdp.addJsListener("playerPlayed", "playerPlayEndHandle");
+	}
+ 
+	function playerPlayEndHandle () {
+	kdp.sendNotification('changeVolume',1);
+	kpd.sendNotification('play');
+	}
+</script>  
+-->
+	
+	
+	
 	<script>
 <!--	document.getElementById( 'kaltura_player' ).sendNotification( 'changeMedia', { referenceId : "kaltura_promo_video" } );
 <!--	document.getElementById(‘myEmbedTarget’).sendNotification('doSeek', 10)
