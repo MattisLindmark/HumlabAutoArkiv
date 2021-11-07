@@ -80,8 +80,8 @@ function delay(time) {
   
   async function test() {
     console.log('start timer');
-    await delay(10000);
-    console.log('after 10 second');
+    await delay(15000);
+    console.log('after 15 second');
     appendRandom(GlobalData);
   }
   
