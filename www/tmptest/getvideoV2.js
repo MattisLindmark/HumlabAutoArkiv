@@ -5,9 +5,9 @@ var midd = '&flashvars[mediaProxy.mediaPlayFrom]='; //5&amp'
 //var botg = ';flashvars[autoPMute]=false&amp;flashvars[autoPlay]=true&amp;flashvars[mobileAutoPlay]=true&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_dif1itof" width="400" height="285" allow="autoplay *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player">';
 
 var botg = ';flashvars[autoPMute]=false&amp;flashvars[autoPlay]=true&amp;flashvars[mobileAutoPlay]=true&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_dif1itof" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player">';
-
-
 var dataurl = 'https://script.google.com/macros/s/AKfycbzHGXqVABMNbQ2o5_-YqkzuOpukQxzoqhqOsnzOB5rfMOUECnXIsYnp10e0R2Dk3zV_/exec';
+var lastIndex = -101;
+var newIndex = -1;
 // var url = 'https://mattislindmark.github.io/HumlabAutoArkiv/www/videolist.json';
 
 //var botg = '&flashvars[autoPlay]=true;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[mediaProxy.mediaPlayFrom]=120&amp;flashvars[mediaProxy.mediaPlayTo]=600&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_dif1itof" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player">';
@@ -31,10 +31,14 @@ var dataurl = 'https://script.google.com/macros/s/AKfycbzHGXqVABMNbQ2o5_-YqkzuOp
     function GetRandomVideo()
     {
         if (GlobalData == null) {return "Error, no golbal data"};
-        
-        i = Math.floor(Math.random()*GlobalData.length);
 
-        return GlobalData[i];
+       do {
+        newIndex = Math.floor(Math.random()*GlobalData.length);
+       } while (lastIndex == newIndex);
+        
+        lastIndex = newIndex;
+
+        return GlobalData[newIndex];
         
     }
 
