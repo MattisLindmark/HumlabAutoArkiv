@@ -12,10 +12,6 @@ body.dark {
     background: black;
     color: white;
 }
-.stuff
-{
-position: center; float: center; text-align: center; padding: 10px 15px; margin-left:auto; margin-right:auto;
-}
 
 h1, h2 {
     text-align: center;
