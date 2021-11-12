@@ -10,17 +10,19 @@
 
 <body>
 <div class="stuff">
-<h1>Sida som visar saker</h1>
-<p>Hej, här är en video V2.</p>
+<h1>Glimpses from the archive</h1>
+<p>Showing random videos from Humlabs video-archive. Video changes every 15 seconds.</p>
 <div id="myData"></div>
+<center>
 <div id="embededPlayer" style="width:600px;height:428px;"></div>
-
+</center>
 <div id="contentinfo">
+	<div id="contentinfo.talare"></div>
 	<div id="contentinfo.rubrik"></div>
 	<div id="contentinfo.datum"></div>
 </div>
-<div id="medialink">link</div>
-
+<div id="medialink">loading...</div>
+	</div>
 
 	<!-- Substitute {partnerId} for your Kaltura partner id, {uiConfId} for an actual player id, also known as the uiconf id and {entryId} for an actual entry id. -->
 	<script src=https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296"></script>
@@ -43,7 +45,7 @@
 	});
 
 // --- Add callbacks ----
-var repeatDelay = 5000;
+var repeatDelay = 15000;
 var seekDone = false;
 var seekValue = 0;
 var FullScreenWorkaround = true;
@@ -131,22 +133,32 @@ var first = true;
 
  	function SetContentInfo(data)
 	 {
-		 var rubrik = document.getElementById("contentinfo.rubrik")
-		 var datum = document.getElementById("contentinfo.datum")
+		var talare = document.getElementById("contentinfo.talare")
+		var rubrik = document.getElementById("contentinfo.rubrik")
+		var datum = document.getElementById("contentinfo.datum")
 
-		 rubrik.innerHTML='Rubrik:'+data.rubrik;
-		 datum.innerHTML='Datum:'+data.datum;
+		talare.innerHTML=''+data.talare;
+		rubrik.innerHTML=''+data.rubrik;
+		datum.innerHTML=''+data.datum;
 		 
 	 }
 
  	function SetLink(data)
 	 {
 		var ml = document.getElementById("medialink");
-        ml.innerHTML = '<a href="https://play.umu.se/media/t/'+data.videoid+'" target="_blank"> Open this talk </a>';
+        ml.innerHTML = '<button class="button-5" role="button"><a href="https://play.umu.se/media/t/'+data.videoid+'" target="_blank"> Open this talk </a></button>';
 	 }
-
+// <button class="button-3">hej</button>
+// https://getcssscan.com/css-buttons-examples
+// <button class="button-3" role="button">Button 3</button>
+// <button class="button-5" role="button">Button 5</button>
+  
+// <button class="button-5" role="button"> hej </button>
+// <button class="button-5" role="button"> hej </button>
 	</script>
-	</div>
+  
+  
+ 
   
 </body>
 </html>
