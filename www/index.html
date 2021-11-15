@@ -87,9 +87,10 @@ var isPaused = false;
 			//kdp.sendNotification("changeVolume", 0.1);
 		});
 		
-//   kdp.kBind('playerSeekEnd', function(){
+   kdp.kBind('playerSeekEnd', function(){
 //		kdp.sendNotification("changeVolume", 0.1);
-//	});
+		kpd.sendNotification("doPlay");
+	});
 	
 //	kdp.kBind('playerUpdatePlayhead', function(){
 //	});
@@ -101,8 +102,8 @@ var isPaused = false;
 
 		if (!isPaused && NewMedia.rubrik != undefined)
 		{
-			kdp.sendNotification('doStop');
-			kdp.sendNotification('cleanMedia');
+			//kdp.sendNotification('doStop');
+			//kdp.sendNotification('cleanMedia');
 			seekDone = false;
 		}
 
