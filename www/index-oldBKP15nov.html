@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<!-- Substitute {partner_id} for your Kaltura partner id, {uiconf_id} for uiconf player id -->
+<!-- <script src="https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296"></script>   --->
+<!--- src="https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296 --->
 	<script type = "text/javascript" src="getvideoV2.js"></script> 
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 <div class="stuff">
-<h1>From the archive</h1>
-<p>Randomly selected videos from Humlabs video-archive. Video changes every 15 seconds.</p>
+<h1>Glimpses from the archive</h1>
+<p>Showing random videos from Humlabs video-archive. Video changes every 15 seconds.</p>
 <div id="myData"></div>
 <center>
 <div id="embededPlayer" style="width:600px;height:428px;"></div>
@@ -20,6 +23,8 @@
 </div>
 <div id="medialink">loading...</div>
 	</div>
+
+	<!-- Substitute {partnerId} for your Kaltura partner id, {uiConfId} for an actual player id, also known as the uiconf id and {entryId} for an actual entry id. -->
 	<script src=https://d38ynedpfya4s8.cloudfront.net/p/296/sp/29600/embedIframeJs/uiconf_id/23449664/partner_id/296"></script>
 	<script>
 	kWidget.embed({
@@ -45,17 +50,19 @@ var seekDone = false;
 var seekValue = 0;
 var FullScreenWorkaround = true;
 var first = true;
-var isPaused = false;
 
 	 kWidget.addReadyCallback(function( playerId ){
         var kdp = document.getElementById( playerId );
 		
 		kdp.kBind("mediaReady.first", function(){ // Hackigt sätt att byta video från början, delay för att undvika krock i play-anrop.
+			//kdp.sendNotification('cleanMedia');
+			//kdp.sendNotification('changeMedia',{'entryId' : '0_90p47kwj' });
 			kdp.sendNotification('showClosedCaptions');
 
 			setTimeout(function(){
 				PlayNewRandomVideo();
 				first = false;
+				//alert("test");
 				console.log("First time setup is done.");
 			},500);
 			kdp.kUnbind('.first');
@@ -74,19 +81,6 @@ var isPaused = false;
 			seekDone = true;
         });
 		
-		kdp.kBind('pause', function(){
-			console.log("Pause pressed");
-			isPaused = true;
-			//kdp.sendNotification("changeVolume", 0.1);
-		});
-		
-		kdp.kBind('play', function(){
-			console.log("Play pressed");
-			isPaused = false;			
-				
-			//kdp.sendNotification("changeVolume", 0.1);
-		});
-		
 //   kdp.kBind('playerSeekEnd', function(){
 //		kdp.sendNotification("changeVolume", 0.1);
 //	});
@@ -94,27 +88,32 @@ var isPaused = false;
 //	kdp.kBind('playerUpdatePlayhead', function(){
 //	});
 
+/*
+	kdp.kBind('mediaReady', function(){ 
+		//kdp.sendNotification('doPlay');		
+
+		if (first)// FIX: Pga fulhacket ovan triggas denna annars 2 ggr med 500ms mellanrum 1a gången.
+			return;
+			
+		setTimeout(function(){
+			PlayNewRandomVideo();			
+		},repeatDelay)
+	})
+*/
+
 	function PlayNewRandomVideo()
 	{
-
+		kdp.sendNotification('doStop');
+		kdp.sendNotification('cleanMedia');
+		seekDone = false;
 		var NewMedia = GetRandomVideo();
-
-		if (!isPaused && NewMedia.rubrik != undefined)
-		{
-			kdp.sendNotification('doStop');
-			kdp.sendNotification('cleanMedia');
-			seekDone = false;
-		}
 
 		if (NewMedia.rubrik != undefined)
 		{
-			if (!isPaused)
-			{
-				seekValue = NewMedia.start;
-				kdp.sendNotification('changeMedia',{'entryId' : NewMedia.videoid } );
-				SetContentInfo(NewMedia);
-				SetLink(NewMedia);
-			}
+			seekValue = NewMedia.start;
+			kdp.sendNotification('changeMedia',{'entryId' : NewMedia.videoid } );
+			SetContentInfo(NewMedia);
+			SetLink(NewMedia);
 
 //		alert(GetRandomVideo());
 			setTimeout(function(){
@@ -132,11 +131,6 @@ var isPaused = false;
 
  });
 
-	 function BtnPause()
-	{	var kdp = document.getElementById( "embededPlayer" );
-		kdp.sendNotification('doPause');
-	}
-
  	function SetContentInfo(data)
 	 {
 		var talare = document.getElementById("contentinfo.talare")
@@ -152,11 +146,15 @@ var isPaused = false;
  	function SetLink(data)
 	 {
 		var ml = document.getElementById("medialink");
-//          ml.innerHTML = '<button class="button-5" role="button"><a href="https://play.umu.se/media/t/'+data.videoid+'" target="_blank"> Open this talk </a></button>';
-          ml.innerHTML = '<a href="https://play.umu.se/media/t/'+data.videoid+'" target="_blank" onclick="BtnPause()"><button class="button-5" role="button"> Open this talk </button></a>';
-
+        ml.innerHTML = '<button class="button-5" role="button"><a href="https://play.umu.se/media/t/'+data.videoid+'" target="_blank"> Open this talk </a></button>';
 	 }
-
+// <button class="button-3">hej</button>
+// https://getcssscan.com/css-buttons-examples
+// <button class="button-3" role="button">Button 3</button>
+// <button class="button-5" role="button">Button 5</button>
+  
+// <button class="button-5" role="button"> hej </button>
+// <button class="button-5" role="button"> hej </button>
 	</script>
   
   
