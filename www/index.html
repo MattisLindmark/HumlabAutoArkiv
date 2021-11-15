@@ -14,9 +14,9 @@
 <div id="embededPlayer" style="width:600px;height:428px;"></div>
 </center>
 <div id="contentinfo">
+	<div id="contentinfo.datum"></div>
 	<div id="contentinfo.talare"></div>
 	<div id="contentinfo.rubrik"></div>
-	<div id="contentinfo.datum"></div>
 </div>
 <div id="medialink">loading...</div>
 	</div>
@@ -132,20 +132,22 @@ var isPaused = false;
 
  });
 
-	 function BtnPause()
-	{	var kdp = document.getElementById( "embededPlayer" );
+	function BtnPause()
+	{
+		console.log("BtnPause");
+		var kdp = document.getElementById( "embededPlayer" );
 		kdp.sendNotification('doPause');
 	}
 
  	function SetContentInfo(data)
 	 {
+		var datum = document.getElementById("contentinfo.datum")
 		var talare = document.getElementById("contentinfo.talare")
 		var rubrik = document.getElementById("contentinfo.rubrik")
-		var datum = document.getElementById("contentinfo.datum")
 
+		datum.innerHTML=''+data.datum;
 		talare.innerHTML=''+data.talare;
 		rubrik.innerHTML=''+data.rubrik;
-		datum.innerHTML=''+data.datum;
 		 
 	 }
 
